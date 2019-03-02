@@ -1,4 +1,4 @@
-# customer-management-reactive
+# customer-management-reactive-kotlin
 This example is to enable the customers of the organisation to manage their profile (end to end i.e. create, update and delete) through web channel and mobile (app) channel. 
 
 This example provide reactive API to list, get, create, update, delete customers with the Oauth2 authentication with the following assumtions:
@@ -14,4 +14,3 @@ High level design:
 4. Only users with admin group can access list/create/delete. Customer can access show/update on their own profile. 
 5. Currently customer profile is stored in DB (in-memory) and is going to integration a downstream CRM system with restful webservices. The implementaion will be marked as TODO
 
-Will be upgraded to Kotlin later on
