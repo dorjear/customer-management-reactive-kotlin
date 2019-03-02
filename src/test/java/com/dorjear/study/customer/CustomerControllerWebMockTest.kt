@@ -41,7 +41,8 @@ class CustomerControllerWebMockTest {
     fun testGetCustomer() {
         val customer = Customer()
         customer.firstName = "first"
-        val expectJson = "{\"version\":null,\"id\":null,\"customerId\":null,\"firstName\":\"first\",\"lastName\":null,\"dateOfBirth\":null,\"homeAddress\":null,\"postalAddress\":null,\"workAddress\":null}"
+        customer.id = 1
+        val expectJson = "{\"version\":null,\"id\":1,\"customerId\":null,\"firstName\":\"first\",\"lastName\":null,\"dateOfBirth\":null,\"homeAddress\":null,\"postalAddress\":null,\"workAddress\":null}"
         `when`(service!!.getCustomerById(1)).thenReturn(Mono.just(customer))
         webTestClient!!.get().uri("/customer/show/1").exchange().expectStatus().is2xxSuccessful.expectBody().consumeWith(Consumer<EntityExchangeResult<ByteArray>> { print(it) }).json(expectJson)
     }

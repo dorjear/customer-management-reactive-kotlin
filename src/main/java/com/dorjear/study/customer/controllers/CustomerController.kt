@@ -38,7 +38,7 @@ class CustomerController {
 
     @ApiOperation(value = "Search a customer with an ID", response = Customer::class)
     @RequestMapping(value = "/show/{id}", method = arrayOf(RequestMethod.GET), produces = arrayOf("application/json"))
-    fun showcustomer(@PathVariable id: Int, authentication: Authentication): Mono<Customer> {
+    fun showcustomer(@PathVariable id: Int, authentication: Authentication?): Mono<Customer> {
         return customerService!!.getCustomerById(id).doOnNext { c -> verify(authentication, c) }
     }
 
